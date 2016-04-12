@@ -1,3 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'telegram-bot-ruby'
+gem 'octokit'
+gem 'telegram_bot'

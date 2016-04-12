@@ -1,14 +1,16 @@
 require 'telegram/bot'
+require_relative 'github'
+config = YAML.load_file('config.yml')
 
-token = File.read('token.key')
-
-Telegram::Bot::Client.run(token) do |bot|
+Telegram::Bot::Client.run(config['telegram_bot_token'], logger: Logger.new($stdout)) do |bot|
   bot.listen do |message|
     case message.text
-      when '/start'
-        bot.api.send_message(chat_id: message.chat.id, text: "Hello, #{message.from.first_name}")
-      when '/stop'
-        bot.api.send_message(chat_id: message.chat.id, text: "Bye, #{message.from.first_name}")
+      when '/get_changes'
+        text = ''
+        config['repos'].each do |cur_repo|
+          text += "#{get_changes_url(cur_repo)}\n"
+        end
+        bot.api.send_message(chat_id: message.chat.id, text: text, parse_mode: 'Markdown')
     end
   end
 end
