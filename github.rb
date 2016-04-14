@@ -1,5 +1,5 @@
 require 'octokit'
-require 'yaml'
+
 config = YAML.load_file('config.yml')
 
 Octokit.configure do |c|
@@ -17,7 +17,18 @@ end
 
 def get_changes_url(repo)
   new_tags = get_tag_names(repo, 'onlyoffice-documentserver')
-  new_tag = new_tags[0]
-  old_tag = new_tags[1]
-  "[#{repo} changes](http://github.com/#{repo}/compare/#{old_tag}...#{new_tag})"
+  @new_tag = new_tags[0]
+  @old_tag = new_tags[1]
+  "https://github.com/#{repo}/compare/#{@old_tag}...#{@new_tag}"
+end
+
+def changes_empty?(repo)
+  changes = Octokit.compare(repo, @old_tag, @new_tag)
+  changes[:files].empty?
+end
+
+def link_to_changes(repo)
+  changes_url = get_changes_url(repo)
+  return if changes_empty?(repo)
+  "[#{repo} changes](#{changes_url})\n"
 end
