@@ -1,5 +1,5 @@
 require 'telegram/bot'
-require_relative 'github'
+require_relative 'github_repo_changes'
 config = YAML.load_file('config.yml')
 repos_changes_array = []
 
