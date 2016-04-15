@@ -5,7 +5,7 @@ require 'yaml'
 class GithubRepoChanges
   def initialize(config_file: 'config.yml',
                  repo: nil,
-                 tags_filter: 'onlyoffice-documentserver')
+                 tags_filter: 'onlyoffice-documentserver-enterprise-')
     @config = YAML.load_file(config_file)
     @repo = repo
     @tags_filter = tags_filter
@@ -25,8 +25,8 @@ class GithubRepoChanges
 
   def fetch_latest_tags
     tags = tag_names(@tags_filter)
-    @new_tag = tags[0]
-    @old_tag = tags[1]
+    @new_tag = tags[5]
+    @old_tag = tags[6]
   end
 
   def changes_url
@@ -41,6 +41,6 @@ class GithubRepoChanges
   def link_to_changes
     fetch_latest_tags
     return '' if changes_empty?
-    "[#{@repo} changes](#{changes_url})\n"
+    "[#{@repo} changes v.#{@new_tag.gsub(@tags_filter, '')}](#{changes_url})\n"
   end
 end
