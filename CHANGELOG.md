@@ -3,6 +3,7 @@
 ## 0.0.2
 # New Features
 * Show only repos with new changes
+* Show version number in changes link
 
 ## 0.0.1
 * Initial Release
