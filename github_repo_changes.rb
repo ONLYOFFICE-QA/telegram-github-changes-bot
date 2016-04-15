@@ -25,8 +25,8 @@ class GithubRepoChanges
 
   def fetch_latest_tags
     tags = tag_names(@tags_filter)
-    @new_tag = tags[5]
-    @old_tag = tags[6]
+    @new_tag = tags[0]
+    @old_tag = tags[1]
   end
 
   def changes_url
