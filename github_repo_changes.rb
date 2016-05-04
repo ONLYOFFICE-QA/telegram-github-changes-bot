@@ -3,12 +3,15 @@ require 'yaml'
 
 # Class for describing changes for github repo
 class GithubRepoChanges
+  attr_reader :version_regex
   def initialize(config_file: 'config.yml',
                  repo: nil,
-                 tags_filter: 'onlyoffice-documentserver-enterprise-')
+                 tags_filter: 'onlyoffice-documentserver-enterprise-',
+                 version_regex: /\d*\.\d*.\d*-\d*/)
     @config = YAML.load_file(config_file)
     @repo = repo
     @tags_filter = tags_filter
+    @version_regex = version_regex
     Octokit.configure do |c|
       c.login = @config['github_user']
       c.password = @config['github_user_password']
@@ -38,9 +41,10 @@ class GithubRepoChanges
     changes[:files].empty?
   end
 
-  def link_to_changes
+  def link_to_changes(specific_version = nil)
     fetch_latest_tags
+    @old_tag = "#{@tags_filter}#{specific_version}" unless specific_version.nil?
     return '' if changes_empty?
-    "[#{@repo} changes v.#{@new_tag.gsub(@tags_filter, '')}](#{changes_url})\n"
+    "[#{@repo} changes v.#{@old_tag.gsub(@tags_filter, '')} - v.#{@new_tag.gsub(@tags_filter, '')}](#{changes_url})\n"
   end
 end
