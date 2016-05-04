@@ -10,10 +10,11 @@ end
 Telegram::Bot::Client.run(config['telegram_bot_token']) do |bot|
   bot.listen do |message|
     case message.text
-    when '/get_changes'
+    when /\/get_changes.*/
       text = ''
       repos_changes_array.each do |cur_repo|
-        text += cur_repo.link_to_changes
+        version = message.text[cur_repo.version_regex]
+        text += cur_repo.link_to_changes(version)
       end
       text = 'There is no changes for latest version' if text.empty?
       bot.api.send_message(chat_id: message.chat.id,
