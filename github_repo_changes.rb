@@ -15,12 +15,13 @@ class GithubRepoChanges
       c.login = @config['github_user']
       c.password = @config['github_user_password']
     end
+    Octokit.auto_paginate = true
   end
 
   def tag_names(tag_filter = '')
     tags = []
     Octokit.tags(@repo).each do |current_tag|
-      tags << current_tag['name'] if current_tag['name'].include?(tag_filter)
+      tags << current_tag['name'] unless (current_tag['name'] =~ /#{@tags_filter}\d/).nil?
     end
     tags
   end
