@@ -8,6 +8,7 @@
 * More string checking for filter tags, after tags filter should be version numbers
 * Move regexp for version to config file
 * Some refactor
+* Correctly ignore Telegram 502 error
 
 ## 0.0.2
 ### New Features
