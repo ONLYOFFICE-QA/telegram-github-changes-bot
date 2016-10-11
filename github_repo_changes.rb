@@ -17,7 +17,7 @@ class GithubRepoChanges
     Octokit.auto_paginate = true
   end
 
-  def tag_names(tag_filter = '')
+  def tag_names
     tags = []
     Octokit.tags(@repo).each do |current_tag|
       tags << current_tag['name'] unless (current_tag['name'] =~ /#{@tags_filter}\d/).nil?
@@ -26,7 +26,7 @@ class GithubRepoChanges
   end
 
   def fetch_latest_tags
-    tags = tag_names(@tags_filter)
+    tags = tag_names
     @new_tag = tags[0]
     @old_tag = tags[1]
   end
