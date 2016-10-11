@@ -1,5 +1,4 @@
-require 'telegram/bot'
-require_relative 'github_repo_changes'
+require_relative 'lib/telegra_github_changes_bot.rb'
 config = YAML.load_file('config.yml')
 repos_changes_array = []
 
@@ -10,7 +9,7 @@ end
 Telegram::Bot::Client.run(config['telegram_bot_token']) do |bot|
   bot.listen do |message|
     case message.text
-    when /\/get_changes.*/
+    when %r{/get_changes.*}
       text = ''
       repos_changes_array.each do |cur_repo|
         version = message.text[cur_repo.version_regex]

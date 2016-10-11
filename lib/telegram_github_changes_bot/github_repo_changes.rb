@@ -17,10 +17,16 @@ class GithubRepoChanges
     Octokit.auto_paginate = true
   end
 
+  # @param string [String] string for check
+  # @return [True, False] check if tag matches regexp
+  def tag_match?(string)
+    (string =~ /#{@tags_filter}\d/).nil?
+  end
+
   def tag_names
     tags = []
     Octokit.tags(@repo).each do |current_tag|
-      tags << current_tag['name'] unless (current_tag['name'] =~ /#{@tags_filter}\d/).nil?
+      tags << current_tag['name'] unless tag_match?(current_tag['name'])
     end
     tags
   end
@@ -44,6 +50,7 @@ class GithubRepoChanges
     fetch_latest_tags
     @old_tag = "#{@tags_filter}#{specific_version}" unless specific_version.nil?
     return '' if changes_empty?
-    "[#{@repo} changes v.#{@old_tag.gsub(@tags_filter, '')} - v.#{@new_tag.gsub(@tags_filter, '')}](#{changes_url})\n"
+    "[#{@repo} changes v.#{@old_tag.gsub(@tags_filter, '')} -"\
+    "v.#{@new_tag.gsub(@tags_filter, '')}](#{changes_url})\n"
   end
 end
