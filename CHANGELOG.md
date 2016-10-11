@@ -9,6 +9,7 @@
 * Move regexp for version to config file
 * Some refactor
 * Correctly ignore Telegram 502 error
+* Major refactor in handling repo refs
 
 ## 0.0.2
 ### New Features
