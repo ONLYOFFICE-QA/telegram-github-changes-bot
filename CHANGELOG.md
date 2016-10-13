@@ -10,6 +10,7 @@
 * Some refactor
 * Correctly ignore Telegram 502 error
 * Major refactor in handling repo refs
+* Use `refs` instead of `tags`
 
 ## 0.0.2
 ### New Features
