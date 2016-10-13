@@ -12,13 +12,11 @@ class GithubRepoChanges
   attr_accessor :new_ref
   def initialize(config_file: 'config.yml',
                  repo: nil)
-    return if config_file.nil?
-    @config = YAML.load_file(config_file)
+    init_github_access(config_file)
     @repo = repo
-    @version_regex = /#{@config['version_regexp']}/
     Octokit.configure do |c|
-      c.login = @config['github_user']
-      c.password = @config['github_user_password']
+      c.login = @user_name
+      c.password = @user_password
     end
   end
 
@@ -38,5 +36,16 @@ class GithubRepoChanges
     return '' if changes_empty?
     "[#{@repo} changes #{@old_ref}..."\
     "#{@new_ref}](#{changes_url})\n"
+  end
+
+  private
+
+  def init_github_access(config)
+    @user_name = ENV['GITHUB_USER_NAME']
+    @user_password = ENV['GITHUB_USER_PASSWORD']
+    return unless File.exist?(config)
+    @config = YAML.load_file(config)
+    @user_name = @config['github_user']
+    @user_password = @config['github_user_password']
   end
 end
