@@ -5,11 +5,13 @@ require_relative 'github_repo_changes/ref_helper'
 
 # Class for describing changes for github repo
 class GithubRepoChanges
+  SAME_MESSAGE = 'Your specified version is the latest version'.freeze
   include GithubRepoChangesHelper
   include RefHelper
   attr_reader :version_regex
   attr_accessor :old_ref
   attr_accessor :new_ref
+  attr_accessor :refs
   def initialize(config_file: 'config.yml',
                  repo: nil)
     init_github_access(config_file)
@@ -33,6 +35,7 @@ class GithubRepoChanges
     fetch_refs
     return "There is no #{@old_ref} in #{@repo}\n" unless ref_exist?(@old_ref)
     return "There is no #{@new_ref} in #{@repo}\n" unless ref_exist?(@new_ref)
+    return "#{@repo}: #{SAME_MESSAGE}" if @old_ref == @new_ref
     return '' if changes_empty?
     "[#{@repo} changes #{@old_ref}..."\
     "#{@new_ref}](#{changes_url})\n"
