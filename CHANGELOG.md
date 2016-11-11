@@ -11,6 +11,7 @@
 * Correctly ignore Telegram 502 error
 * Major refactor in handling repo refs
 * Use `refs` instead of `tags`
+* Show more detailed message if specified ref - is the latest
 
 ## 0.0.2
 ### New Features
