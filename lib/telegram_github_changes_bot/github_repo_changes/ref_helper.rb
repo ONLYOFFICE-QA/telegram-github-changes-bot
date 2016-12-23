@@ -1,6 +1,7 @@
 # Classes for working with refs
 module RefHelper
   def refs_names
+    Octokit.auto_paginate = true
     @refs = []
     Octokit.tags(@repo).each do |current_tag|
       @refs << current_tag['name']

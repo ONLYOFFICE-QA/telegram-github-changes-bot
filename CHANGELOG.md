@@ -12,6 +12,7 @@
 * Major refactor in handling repo refs
 * Use `refs` instead of `tags`
 * Show more detailed message if specified ref - is the latest
+* Force pagination - without it some data meay be lost
 
 ## 0.0.2
 ### New Features
