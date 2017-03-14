@@ -27,5 +27,9 @@ Telegram::Bot::Client.run(config['telegram_bot_token']) do |bot|
       puts 'Telegram raised 502 error. Pretty normal, ignore that'
     end
     retry
+  rescue Faraday::ConnectionFailed
+    puts 'Faraday raise Faraday::ConnectionFailed error. '\
+         'Sometimes it happens. Retrying to fetch updates'
+    retry
   end
 end
