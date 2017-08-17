@@ -9,3 +9,10 @@ github_user: user
 github_user_password: pasword
 repos: [nodejs/node]
 ```
+
+# Docker build
+```
+docker build -t telegram-github-changes-bot .
+docker run -itd --name telegram-github-changes-bot telegram-github-changes-bot
+
+```
