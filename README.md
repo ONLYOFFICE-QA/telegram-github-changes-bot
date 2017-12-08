@@ -13,6 +13,6 @@ repos: [nodejs/node]
 # Docker build
 ```
 docker build -t telegram-github-changes-bot .
-docker run -itd --name telegram-github-changes-bot telegram-github-changes-bot
+docker run -itd --restart=always --name telegram-github-changes-bot telegram-github-changes-bot
 
 ```
