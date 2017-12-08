@@ -16,7 +16,7 @@ Telegram::Bot::Client.run(config['telegram_bot_token']) do |bot|
           cur_repo.refs_from_message(message.text)
           text += cur_repo.link_to_changes
         end
-        text = 'There is no changes for latest version' if text.empty?
+        text = 'There is no changes for specified versions' if text.empty?
         bot.api.send_message(chat_id: message.chat.id,
                              text: text,
                              parse_mode: 'Markdown')
