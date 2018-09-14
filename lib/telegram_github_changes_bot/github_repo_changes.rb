@@ -37,6 +37,7 @@ class GithubRepoChanges
     return "There is no #{@new_ref} in #{@repo}\n" unless ref_exist?(@new_ref)
     return "#{@repo}: #{SAME_MESSAGE}" if @old_ref == @new_ref
     return '' if changes_empty?
+
     "[#{@repo} changes #{@old_ref}..."\
     "#{@new_ref}](#{changes_url})\n"
   end
@@ -47,6 +48,7 @@ class GithubRepoChanges
     @user_name = ENV['GITHUB_USER_NAME']
     @user_password = ENV['GITHUB_USER_PASSWORD']
     return unless File.exist?(config)
+
     @config = YAML.load_file(config)
     @user_name = @config['github_user']
     @user_password = @config['github_user_password']
