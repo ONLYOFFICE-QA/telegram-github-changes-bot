@@ -6,6 +6,7 @@ module GithubRepoChangesHelper
   def refs_from_message(message)
     return fetch_two_refs(message) if message.include?('...')
     return fetch_one_refs(message) if message.include?(' ')
+
     @old_ref = nil
     @new_ref = nil
   end

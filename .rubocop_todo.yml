@@ -6,13 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 3
-# Cop supports --auto-correct.
-Layout/EmptyLineAfterGuardClause:
-  Exclude:
-    - 'lib/telegram_github_changes_bot/github_repo_changes.rb'
-    - 'lib/telegram_github_changes_bot/github_repo_changes/github_repo_changes_helper.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/OrAssignment:
