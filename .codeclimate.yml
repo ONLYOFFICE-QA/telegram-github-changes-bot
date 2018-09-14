@@ -1,5 +1,5 @@
----
-engines:
+version: "2"
+plugins:
   duplication:
     enabled: true
     config:
@@ -7,15 +7,11 @@ engines:
       - ruby
   fixme:
     enabled: true
+  markdownlint:
+    enabled: true
   rubocop:
     enabled: true
-ratings:
-  paths:
-  - "**.inc"
-  - "**.js"
-  - "**.jsx"
-  - "**.module"
-  - "**.php"
-  - "**.py"
-  - "**.rb"
-exclude_paths: []
+  reek:
+    enabled: true
+  shellcheck:
+    enabled: true
