@@ -5,6 +5,7 @@ Git bot for sending messages about github changes
 ## Config
 
 By file `config.yml` with data
+
 ```bash
 telegram_bot_token: token
 github_user: user
