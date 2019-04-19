@@ -4,7 +4,6 @@ rvm:
 - 2.6.3
 - 2.5.5
 - 2.4.6
-before_install: gem install bundler
 bundler_args: "--without development"
 script:
 - bundle exec rspec
