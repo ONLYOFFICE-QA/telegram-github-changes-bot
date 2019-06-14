@@ -29,7 +29,7 @@ GEM
     iniparse (1.4.4)
     jaro_winkler (1.5.2)
     json (2.2.0)
-    multipart-post (2.0.0)
+    multipart-post (2.1.1)
     octokit (4.14.0)
       sawyer (~> 0.8.0, >= 0.5.3)
     overcommit (0.47.0)
@@ -71,7 +71,7 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
-    telegram-bot-ruby (0.8.6.1)
+    telegram-bot-ruby (0.10.1)
       faraday
       inflecto
       virtus
