@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'octokit'
 require 'yaml'
 require_relative 'github_repo_changes/github_repo_changes_helper'
@@ -5,7 +7,7 @@ require_relative 'github_repo_changes/ref_helper'
 
 # Class for describing changes for github repo
 class GithubRepoChanges
-  SAME_MESSAGE = 'Your specified version is the latest version'.freeze
+  SAME_MESSAGE = 'Your specified version is the latest version'
   include GithubRepoChangesHelper
   include RefHelper
   attr_reader :version_regex

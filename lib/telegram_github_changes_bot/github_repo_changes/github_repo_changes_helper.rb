@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Helper for working with repo
 module GithubRepoChangesHelper
   # Fetch any number of refs from message
