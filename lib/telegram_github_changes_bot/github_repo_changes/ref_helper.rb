@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Classes for working with refs
 module RefHelper
   def refs_names
