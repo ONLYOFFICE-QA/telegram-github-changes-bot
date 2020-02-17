@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'logger'
 require 'octokit'
 require 'yaml'
 require_relative 'github_repo_changes/github_repo_changes_helper'
@@ -18,6 +19,7 @@ class GithubRepoChanges
                  repo: nil)
     init_github_access(config_file)
     @repo = repo
+    @logger = Logger.new(STDOUT)
     Octokit.configure do |c|
       c.login = @user_name
       c.password = @user_password
@@ -34,6 +36,8 @@ class GithubRepoChanges
   end
 
   def link_to_changes
+    @logger.info("Fetching changes for `#{@repo}` "\
+                          "between `#{@old_ref}` and `#{@new_ref}`")
     fetch_refs
     return "There is no #{@old_ref} in #{@repo}\n" unless ref_exist?(@old_ref)
     return "There is no #{@new_ref} in #{@repo}\n" unless ref_exist?(@new_ref)

@@ -16,6 +16,7 @@
 * Show more detailed message if specified ref - is the latest
 * Force pagination - without it some data meay be lost
 * Do not install test gems in dockerfile
+* Add logging of fetching changes
 
 ## 0.0.2
 
