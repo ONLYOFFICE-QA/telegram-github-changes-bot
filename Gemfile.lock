@@ -20,7 +20,7 @@ GEM
     diff-lcs (1.3)
     docile (1.3.2)
     equalizer (0.0.11)
-    faraday (1.0.0)
+    faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ice_nine (0.11.2)
     inflecto (0.0.2)
