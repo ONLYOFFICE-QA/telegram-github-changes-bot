@@ -18,6 +18,10 @@
 * Do not install test gems in dockerfile
 * Add logging of fetching changes
 
+### Fixes
+
+* Fix warning for `bundle install` (user `bundle config set without`)
+
 ## 0.0.2
 
 ### New Features
