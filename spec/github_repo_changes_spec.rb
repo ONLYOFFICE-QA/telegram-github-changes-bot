@@ -3,12 +3,18 @@
 require 'spec_helper'
 
 describe GithubRepoChanges do
-  let(:github_changes) { GithubRepoChanges.new(repo: 'ONLYOFFICE/sdkjs') }
+  let(:github_changes) { described_class.new(repo: 'ONLYOFFICE/sdkjs') }
 
-  it 'Check changes without refs' do
-    github_changes.refs_from_message('/get_changes')
-    expect(github_changes.old_ref).to be_nil
-    expect(github_changes.new_ref).to be_nil
+  describe 'Check changes without refs' do
+    before { github_changes.refs_from_message('/get_changes') }
+
+    it 'expect old_ref is nil' do
+      expect(github_changes.old_ref).to be_nil
+    end
+
+    it 'expect new_ref is nil' do
+      expect(github_changes.new_ref).to be_nil
+    end
   end
 
   it 'Check changes with single ref' do
@@ -16,10 +22,16 @@ describe GithubRepoChanges do
     expect(github_changes.old_ref).to eq('v4.2.0.73')
   end
 
-  it 'Check changes with both ref' do
-    github_changes.refs_from_message('/get_changes master...develop')
-    expect(github_changes.old_ref).to eq('master')
-    expect(github_changes.new_ref).to eq('develop')
+  describe 'Check changes with both ref' do
+    before { github_changes.refs_from_message('/get_changes master...develop') }
+
+    it 'expect old_ref is correct' do
+      expect(github_changes.old_ref).to eq('master')
+    end
+
+    it 'expect new_ref is correct' do
+      expect(github_changes.new_ref).to eq('develop')
+    end
   end
 
   it 'Check correct message if single ref - is the latest ref' do
