@@ -23,6 +23,10 @@
 * Fix warning for `bundle install` (user `bundle config set without`)
 * Sanitize output to telegram (repleace `_`)
 
+### Changes
+
+* Use `alpine` as base image
+
 ## 0.0.2
 
 ### New Features
