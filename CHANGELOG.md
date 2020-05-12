@@ -21,7 +21,6 @@
 ### Fixes
 
 * Fix warning for `bundle install` (user `bundle config set without`)
-* Sanitize output to telegram (repleace `_`)
 
 ### Changes
 
