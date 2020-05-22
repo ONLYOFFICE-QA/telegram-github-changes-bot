@@ -24,9 +24,12 @@ module RefHelper
     false
   end
 
+  # Fetch refs values (fill @new_ref and @old_ref)
+  # @return [nil]
   def fetch_refs
     refs = refs_names
-    @new_ref = refs[0] unless @new_ref
-    @old_ref = refs[1] unless @old_ref
+    @new_ref ||= refs[0]
+    @old_ref ||= refs[1]
+    nil
   end
 end
