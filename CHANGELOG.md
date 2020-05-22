@@ -17,7 +17,8 @@
 * Force pagination - without it some data meay be lost
 * Do not install test gems in dockerfile
 * Add logging of fetching changes
-* Fixes from `rubocop` 0.84.0 
+* Fixes from `rubocop` 0.84.0
+* Support of `markdownlint` in travis-ci
 
 ### Fixes
 
