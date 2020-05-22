@@ -15,6 +15,7 @@ class GithubRepoChanges
   attr_accessor :old_ref
   attr_accessor :new_ref
   attr_accessor :refs
+
   def initialize(config_file: 'config.yml',
                  repo: nil)
     init_github_access(config_file)
