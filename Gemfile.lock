@@ -9,12 +9,13 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     childprocess (4.0.0)
-    codecov (0.1.17)
+    codecov (0.2.0)
+      colorize
       json
       simplecov
-      url
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
+    colorize (0.8.1)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.4.4)
@@ -82,7 +83,6 @@ GEM
       virtus
     thread_safe (0.3.6)
     unicode-display_width (1.7.0)
-    url (0.3.2)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
