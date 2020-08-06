@@ -29,4 +29,9 @@ describe GithubRepoChanges do
     expect(github_changes.link_to_changes)
       .to match(/Your specified version is the latest version/)
   end
+
+  it 'Check changes for not-existing refs' do
+    github_changes.refs_from_message('/get_changes foo...bar')
+    expect(github_changes.link_to_changes).to include(/There is no/)
+  end
 end
