@@ -20,7 +20,7 @@ class GithubRepoChanges
                  repo: nil)
     init_github_access(config_file)
     @repo = repo
-    @logger = Logger.new(STDOUT)
+    @logger = Logger.new($stdout)
     Octokit.configure do |c|
       c.login = @user_name
       c.password = @user_password
