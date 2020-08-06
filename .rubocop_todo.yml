@@ -19,9 +19,3 @@ Style/AccessorGrouping:
 Style/GlobalStdStream:
   Exclude:
     - 'lib/telegram_github_changes_bot/github_repo_changes.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/RedundantFileExtensionInRequire:
-  Exclude:
-    - 'bot.rb'
