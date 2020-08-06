@@ -20,8 +20,10 @@ class GithubRepoChanges
   attr_accessor :refs
 
   def initialize(config_file: 'config.yml',
+                 force_config_file: false,
                  repo: nil)
-    init_github_access(config_file)
+    init_github_access(config_file,
+                       force_file_read: force_config_file)
     @repo = repo
     @logger = Logger.new($stdout)
     Octokit.configure do |c|
@@ -54,10 +56,10 @@ class GithubRepoChanges
 
   private
 
-  def init_github_access(config)
+  def init_github_access(config, force_file_read: false)
     @user_name = ENV['GITHUB_USER_NAME']
     @user_password = ENV['GITHUB_USER_PASSWORD']
-    return unless File.exist?(config)
+    return unless File.exist?(config) || force_file_read
 
     @config = YAML.load_file(config)
     @user_name = @config['github_user']
