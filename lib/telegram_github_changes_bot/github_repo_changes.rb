@@ -12,8 +12,11 @@ class GithubRepoChanges
   include GithubRepoChangesHelper
   include RefHelper
   attr_reader :version_regex
+  # @return [String] name of old ref
   attr_accessor :old_ref
+  # @return [String] name of new ref
   attr_accessor :new_ref
+  # @return [Array<String>] list of refs
   attr_accessor :refs
 
   def initialize(config_file: 'config.yml',
