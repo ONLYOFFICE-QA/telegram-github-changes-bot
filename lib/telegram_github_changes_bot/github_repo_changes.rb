@@ -12,15 +12,18 @@ class GithubRepoChanges
   include GithubRepoChangesHelper
   include RefHelper
   attr_reader :version_regex
+  # @return [String] name of old ref
   attr_accessor :old_ref
+  # @return [String] name of new ref
   attr_accessor :new_ref
+  # @return [Array<String>] list of refs
   attr_accessor :refs
 
   def initialize(config_file: 'config.yml',
                  repo: nil)
     init_github_access(config_file)
     @repo = repo
-    @logger = Logger.new(STDOUT)
+    @logger = Logger.new($stdout)
     Octokit.configure do |c|
       c.login = @user_name
       c.password = @user_password

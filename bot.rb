@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'lib/telegram_github_changes_bot.rb'
+require_relative 'lib/telegram_github_changes_bot'
 config = YAML.load_file('config.yml')
 repos_changes_array = []
 
