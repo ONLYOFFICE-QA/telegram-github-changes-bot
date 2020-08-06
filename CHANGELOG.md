@@ -19,6 +19,7 @@
 * Add logging of fetching changes
 * Fix new warnings from `rubocop` v0.89.0 update
 * Support of `markdownlint` in travis-ci
+* Increase test coverage to 100%
 
 ### Fixes
 
