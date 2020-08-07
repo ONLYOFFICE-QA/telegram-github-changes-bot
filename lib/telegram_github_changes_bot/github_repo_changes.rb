@@ -8,6 +8,7 @@ require_relative 'github_repo_changes/ref_helper'
 
 # Class for describing changes for github repo
 class GithubRepoChanges
+  # @return [String] message if version is latest
   SAME_MESSAGE = 'Your specified version is the latest version'
   include GithubRepoChangesHelper
   include RefHelper
@@ -32,15 +33,18 @@ class GithubRepoChanges
     end
   end
 
+  # @return [String] url to changes
   def changes_url
     "https://github.com/#{@repo}/compare/#{@old_ref}...#{@new_ref}"
   end
 
+  # @return [True, False] is changes empty
   def changes_empty?
     changes = Octokit.compare(@repo, @old_ref, @new_ref)
     changes[:files].empty?
   end
 
+  # @return [String] link to changes to send in message
   def link_to_changes
     @logger.info("Fetching changes for `#{@repo}` "\
                           "between `#{@old_ref}` and `#{@new_ref}`")
