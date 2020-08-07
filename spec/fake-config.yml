@@ -1,0 +1,4 @@
+telegram_bot_token: token
+github_user: user
+github_user_password: pasword
+repos: [nodejs/node]
