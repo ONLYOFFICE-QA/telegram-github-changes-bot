@@ -31,6 +31,8 @@
 ### Changes
 
 * Use `alpine` as base image
+* `GITHUB_USER_NAME` and `GITHUB_USER_PASSWORD` changed 
+  to `CHANGES_BOT_GH_USER_NAME` nad `CHANGES_BOT_GH_USER_PASSWORD`
 
 ## 0.0.2
 

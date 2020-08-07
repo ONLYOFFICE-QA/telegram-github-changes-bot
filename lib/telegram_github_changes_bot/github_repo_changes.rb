@@ -61,8 +61,8 @@ class GithubRepoChanges
   private
 
   def init_github_access(config, force_file_read: false)
-    @user_name = ENV['GITHUB_USER_NAME']
-    @user_password = ENV['GITHUB_USER_PASSWORD']
+    @user_name = ENV['CHANGES_BOT_GH_USER_NAME']
+    @user_password = ENV['CHANGES_BOT_GH_USER_PASSWORD']
     return unless File.exist?(config) || force_file_read
 
     @config = YAML.load_file(config)
