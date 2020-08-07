@@ -2,6 +2,9 @@
 
 # Classes for working with refs
 module RefHelper
+  # Get list of refs names
+  # Set `@refs` variable
+  # @return [Array<String>] list of refs
   def refs_names
     Octokit.auto_paginate = true
     @refs = []
