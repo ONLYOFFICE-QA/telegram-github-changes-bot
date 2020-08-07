@@ -22,6 +22,7 @@
 * Increase test coverage to 100%
 * Add option to `GithubRepoChanges.new` to force read config from file
 * Increase documentation to 100%
+* Use `GitHub Actions` instead of `Travis CI`
 
 ### Fixes
 
