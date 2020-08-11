@@ -12,7 +12,6 @@ class GithubRepoChanges
   SAME_MESSAGE = 'Your specified version is the latest version'
   include GithubRepoChangesHelper
   include RefHelper
-  attr_reader :version_regex
   # @return [String] name of old ref
   attr_accessor :old_ref
   # @return [String] name of new ref
