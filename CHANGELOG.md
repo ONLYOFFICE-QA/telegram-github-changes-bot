@@ -22,6 +22,8 @@
 * Increase test coverage to 100%
 * Add option to `GithubRepoChanges.new` to force read config from file
 * Increase documentation to 100%
+* Use `GitHub Actions` instead of `Travis CI`
+* Add `yard` as dev dependency
 
 ### Fixes
 
@@ -30,6 +32,8 @@
 ### Changes
 
 * Use `alpine` as base image
+* `GITHUB_USER_NAME` and `GITHUB_USER_PASSWORD` changed
+  to `CHANGES_BOT_GH_USER` nad `CHANGES_BOT_GH_PASS`
 
 ## 0.0.2
 
