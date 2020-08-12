@@ -2,6 +2,8 @@
 
 ## Unreleased (master)
 
+## 0.1.0 (2020-08-12)
+
 ### New Features
 
 * Show version number in changes link
