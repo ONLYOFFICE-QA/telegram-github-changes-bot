@@ -2,6 +2,10 @@
 
 ## Unreleased (master)
 
+## Changes
+
+* Drop support of ruby 2.4, since it's EOLed
+
 ## 0.1.0 (2020-08-12)
 
 ### New Features
