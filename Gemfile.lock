@@ -9,7 +9,7 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     childprocess (4.0.0)
-    codecov (0.2.5)
+    codecov (0.2.6)
       colorize
       json
       simplecov
