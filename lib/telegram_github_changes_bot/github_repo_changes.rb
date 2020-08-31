@@ -53,8 +53,9 @@ class GithubRepoChanges
     return "#{@repo}: #{SAME_MESSAGE}" if @old_ref == @new_ref
     return '' if changes_empty?
 
-    "[#{@repo} changes #{@old_ref}..."\
-    "#{@new_ref}](#{changes_url})\n"
+    changes_text = "#{@repo} changes #{@old_ref}..."\
+                   "#{@new_ref}"
+    "<a href='#{changes_url}'>#{changes_text}</a>\n"
   end
 
   private
