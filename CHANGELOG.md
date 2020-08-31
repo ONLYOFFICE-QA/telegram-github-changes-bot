@@ -2,7 +2,9 @@
 
 ## Unreleased (master)
 
-## Changes
+## 0.2.0 (2020-08-31)
+
+### Changes
 
 * Send message in `html` parse mode
 * Drop support of ruby 2.4, since it's EOLed
