@@ -2,6 +2,10 @@
 
 ## Unreleased (master)
 
+### Changes
+
+* Allow failures on `ruby-head` in CI
+
 ## 0.2.0 (2020-08-31)
 
 ### Changes
