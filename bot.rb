@@ -9,20 +9,18 @@ config['repos'].each do |cur_repo|
 end
 
 Telegram::Bot::Client.run(config['telegram_bot_token']) do |bot|
-  begin
-    bot.listen do |message|
-      case message.text
-      when %r{/get_changes.*}
-        text = ''
-        repos_changes_array.each do |cur_repo|
-          cur_repo.refs_from_message(message.text)
-          text += cur_repo.link_to_changes
-        end
-        text = 'There is no changes for specified versions' if text.empty?
-        bot.api.send_message(chat_id: message.chat.id,
-                             text: text,
-                             parse_mode: 'html')
+  bot.listen do |message|
+    case message.text
+    when %r{/get_changes.*}
+      text = ''
+      repos_changes_array.each do |cur_repo|
+        cur_repo.refs_from_message(message.text)
+        text += cur_repo.link_to_changes
       end
+      text = 'There is no changes for specified versions' if text.empty?
+      bot.api.send_message(chat_id: message.chat.id,
+                           text: text,
+                           parse_mode: 'html')
     end
   end
 end
