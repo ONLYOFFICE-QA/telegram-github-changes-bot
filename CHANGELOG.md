@@ -5,6 +5,7 @@
 ### Changes
 
 * Allow failures on `ruby-head` in CI
+* Fix new warnings from `rubocop` v0.93.0 update
 
 ## 0.2.0 (2020-08-31)
 
