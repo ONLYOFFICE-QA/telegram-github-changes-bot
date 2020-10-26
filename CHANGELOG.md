@@ -6,6 +6,7 @@
 
 * Allow failures on `ruby-head` in CI
 * Fix new warnings from `rubocop` v0.93.0 update
+* CI only on current stable ruby and ruby-head
 
 ## 0.2.0 (2020-08-31)
 
