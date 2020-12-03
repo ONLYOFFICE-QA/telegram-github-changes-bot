@@ -2,6 +2,10 @@
 
 ## Unreleased (master)
 
+### New Features
+
+* Add `dependabot` config
+
 ### Changes
 
 * Allow failures on `ruby-head` in CI
