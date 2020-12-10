@@ -9,9 +9,8 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     childprocess (4.0.0)
-    codecov (0.2.12)
-      json
-      simplecov
+    codecov (0.2.13)
+      simplecov (~> 0.18.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     descendants_tracker (0.0.4)
@@ -25,7 +24,6 @@ GEM
     ice_nine (0.11.2)
     inflecto (0.0.2)
     iniparse (1.5.0)
-    json (2.3.1)
     multipart-post (2.1.1)
     octokit (4.19.0)
       faraday (>= 0.9)
@@ -76,12 +74,10 @@ GEM
     sawyer (0.8.2)
       addressable (>= 2.3.5)
       faraday (> 0.8, < 2.0)
-    simplecov (0.20.0)
+    simplecov (0.18.5)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
-      simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
-    simplecov_json_formatter (0.1.2)
     telegram-bot-ruby (0.14.0)
       faraday
       inflecto
