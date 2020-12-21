@@ -14,7 +14,7 @@ group :development do
 end
 
 group :test do
-  gem 'codecov', require: false
   gem 'rake'
   gem 'rspec'
+  gem 'simplecov', require: false
 end
