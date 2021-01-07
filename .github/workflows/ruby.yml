@@ -26,7 +26,7 @@ jobs:
         bundle install --jobs 4 --retry 3
         bundle exec rake
     - name: Check `simplecov` result coverage
-      run: cat coverage/.last_run.json | jq '.result.covered_percent' | grep -q '100'
+      run: cat coverage/.last_run.json | jq '.result.line' | grep -q '100'
     - uses: actions/setup-node@v1
     - name: Check markdown files using `markdownlint`
       run: |
