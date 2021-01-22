@@ -7,6 +7,10 @@
 * Add `ruby-3.0` to CI
 * Add Docker build check in CI
 
+### Changes
+
+* Use `ruby:3.0-alpine` as default base image
+
 ## 0.3.0 (2020-12-21)
 
 ### New Features
