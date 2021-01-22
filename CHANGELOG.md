@@ -11,6 +11,10 @@
 
 * Use `ruby:3.0-alpine` as default base image
 
+### Fixes
+
+* Fix `hadolint` DL3025 issue
+
 ## 0.3.0 (2020-12-21)
 
 ### New Features
