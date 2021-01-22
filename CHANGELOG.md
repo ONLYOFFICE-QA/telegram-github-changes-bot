@@ -5,6 +5,7 @@
 ### New Features
 
 * Add `ruby-3.0` to CI
+* Add Docker build check in CI
 
 ## 0.3.0 (2020-12-21)
 
