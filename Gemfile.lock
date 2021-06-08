@@ -15,7 +15,6 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.4.4)
     docile (1.4.0)
-    equalizer (0.0.11)
     faraday (1.4.2)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -97,11 +96,10 @@ GEM
       virtus
     thread_safe (0.3.6)
     unicode-display_width (2.0.0)
-    virtus (1.0.5)
+    virtus (2.0.0)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
-      equalizer (~> 0.0, >= 0.0.9)
     yard (0.9.26)
 
 PLATFORMS
