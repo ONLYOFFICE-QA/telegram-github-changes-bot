@@ -46,7 +46,7 @@ class GithubRepoChanges
   # @return [String] link to changes to send in message
   def link_to_changes
     @logger.info("Fetching changes for `#{@repo}` "\
-                          "between `#{@old_ref}` and `#{@new_ref}`")
+                 "between `#{@old_ref}` and `#{@new_ref}`")
     fetch_refs
     return "There is no #{@old_ref} in #{@repo}\n" unless ref_exist?(@old_ref)
     return "There is no #{@new_ref} in #{@repo}\n" unless ref_exist?(@new_ref)
