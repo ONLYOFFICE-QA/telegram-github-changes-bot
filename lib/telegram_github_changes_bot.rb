@@ -12,6 +12,7 @@ class TelegramGithubChangesBot
       "Usage: `/get_changes version1...version2`\n"\
       "version1, version2 in format like `6.4.1.45`\n" \
       "------\n" \
-      'example: `/get_changes v6.5.0.46...v6.5.0.57`'
+      "example: \n"\
+      '/get_changes v6.5.0.46...v6.5.0.57'
   end
 end
