@@ -2,6 +2,10 @@
 
 ## Unreleased (master)
 
+### New Features
+
+* New `/help` command with bot description
+
 ## 1.0.0 (2021-01-22)
 
 ### New Features
