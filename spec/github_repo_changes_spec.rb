@@ -21,8 +21,8 @@ describe GithubRepoChanges do
 
   it 'Check correct message if single ref - is the latest ref' do
     github_changes.fetch_refs
-    newset_ref = github_changes.refs.first
-    github_changes.refs_from_message("/get_changes #{newset_ref}")
+    newest_ref = github_changes.refs.first
+    github_changes.refs_from_message("/get_changes #{newest_ref}")
     expect(github_changes.link_to_changes)
       .to match(/Your specified version is the latest version/)
   end
