@@ -3,6 +3,7 @@
 require_relative 'lib/telegram_github_changes_bot'
 config = YAML.load_file('config.yml')
 repos_changes_array = []
+changes_bot = TelegramGithubChangesBot.new
 
 config['repos'].each do |cur_repo|
   repos_changes_array << GithubRepoChanges.new(repo: cur_repo)
@@ -20,6 +21,10 @@ Telegram::Bot::Client.run(config['telegram_bot_token']) do |bot|
       text = 'There is no changes for specified versions' if text.empty?
       bot.api.send_message(chat_id: message.chat.id,
                            text: text,
+                           parse_mode: 'html')
+    when '/help'
+      bot.api.send_message(chat_id: message.chat.id,
+                           text: changes_bot.help_message,
                            parse_mode: 'html')
     end
   end
