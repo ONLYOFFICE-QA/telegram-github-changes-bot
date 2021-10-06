@@ -24,7 +24,8 @@ Telegram::Bot::Client.run(config['telegram_bot_token']) do |bot|
                            parse_mode: 'html')
     when '/help'
       bot.api.send_message(chat_id: message.chat.id,
-                           text: changes_bot.help_message)
+                           text: changes_bot.help_message,
+                           parse_mode: 'markdown')
     end
   end
 end
