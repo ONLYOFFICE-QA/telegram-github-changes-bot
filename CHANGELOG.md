@@ -7,6 +7,10 @@
 * New `/help` command with bot description
 * Log any received command (known and unknown)
 
+### Changes
+
+* [ci] Increase order of `markdownlint` check for faster failures
+
 ## 1.0.0 (2021-01-22)
 
 ### New Features
