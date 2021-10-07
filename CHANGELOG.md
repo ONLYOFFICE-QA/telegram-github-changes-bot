@@ -56,7 +56,7 @@
 * Major refactor in handling repo refs
 * Use `refs` instead of `tags`
 * Show more detailed message if specified ref - is the latest
-* Force pagination - without it some data meay be lost
+* Force pagination - without it some data may be lost
 * Do not install test gems in dockerfile
 * Add logging of fetching changes
 * Fix new warnings from `rubocop` v0.89.0 update
