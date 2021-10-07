@@ -11,6 +11,7 @@ end
 
 Telegram::Bot::Client.run(config['telegram_bot_token']) do |bot|
   bot.listen do |message|
+    changes_bot.log_message_receive(message)
     case message.text
     when %r{/get_changes.*}
       text = ''
@@ -26,6 +27,8 @@ Telegram::Bot::Client.run(config['telegram_bot_token']) do |bot|
       bot.api.send_message(chat_id: message.chat.id,
                            text: changes_bot.help_message,
                            parse_mode: 'html')
+    else
+      changes_bot.log_unknown_command(message)
     end
   end
 end

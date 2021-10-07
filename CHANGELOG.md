@@ -5,6 +5,7 @@
 ### New Features
 
 * New `/help` command with bot description
+* Log any received command (known and unknown)
 
 ## 1.0.0 (2021-01-22)
 
