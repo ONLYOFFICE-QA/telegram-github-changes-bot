@@ -13,6 +13,11 @@ jobs:
             allow-failures: true
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+    - name: Check markdown files using `markdownlint`
+      run: |
+        npm install -g markdownlint-cli
+        markdownlint *.md
     - name: Set up Ruby ${{ matrix.ruby }}
       uses: ruby/setup-ruby@v1
       with:
@@ -27,11 +32,6 @@ jobs:
         bundle exec rake
     - name: Check `simplecov` result coverage
       run: cat coverage/.last_run.json | jq '.result.line' | grep -q '100'
-    - uses: actions/setup-node@v1
-    - name: Check markdown files using `markdownlint`
-      run: |
-        npm install -g markdownlint-cli
-        markdownlint *.md
     - name: Check source files using `rubocop`
       run: rubocop
     - name: Check that code 100% documented
