@@ -10,6 +10,7 @@
 ### Changes
 
 * [ci] Increase order of `markdownlint` check for faster failures
+* Increase branch coverage
 
 ## 1.0.0 (2021-01-22)
 
