@@ -30,8 +30,10 @@ jobs:
         gem install bundler
         bundle install --jobs 4 --retry 3
         bundle exec rake
-    - name: Check `simplecov` result coverage
+    - name: Check `simplecov` line coverage
       run: cat coverage/.last_run.json | jq '.result.line' | grep -q '100'
+    - name: Check `simplecov` branch coverage
+      run: cat coverage/.last_run.json | jq '.result.branch' | grep -q '100'
     - name: Check source files using `rubocop`
       run: rubocop
     - name: Check that code 100% documented
