@@ -6,11 +6,12 @@
 
 * New `/help` command with bot description
 * Log any received command (known and unknown)
+* Add 100% branch coverage check in ci
 
 ### Changes
 
 * [ci] Increase order of `markdownlint` check for faster failures
-* Increase branch coverage
+* Increase branch coverage to 100%
 
 ## 1.0.0 (2021-01-22)
 
