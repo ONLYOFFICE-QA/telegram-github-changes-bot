@@ -8,6 +8,7 @@
 * Log any received command (known and unknown)
 * Add 100% branch coverage check in ci
 * Add `ruby-3.1` to CI
+* Add `yamllint` check in CI
 
 ### Fixes
 
