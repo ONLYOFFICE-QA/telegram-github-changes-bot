@@ -9,6 +9,10 @@
 * Add 100% branch coverage check in ci
 * Add `ruby-3.1` to CI
 
+### Fixes
+
+* Fix `markdownlint` failure because of old `nodejs` in CI
+
 ### Changes
 
 * [ci] Increase order of `markdownlint` check for faster failures
