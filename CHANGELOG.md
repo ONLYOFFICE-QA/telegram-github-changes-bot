@@ -18,6 +18,7 @@
 * [ci] Increase order of `markdownlint` check for faster failures
 * Increase branch coverage to 100%
 * Remove `ruby-2.7` from CI since we use 3.0 in default docker
+* Remove `codeclimate` support since we don't use it any more
 
 ## 1.0.0 (2021-01-22)
 
