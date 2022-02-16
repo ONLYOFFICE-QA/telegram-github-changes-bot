@@ -12,37 +12,30 @@ jobs:
           - ruby: head
             allow-failures: true
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '16'
-    - name: Check markdown files using `markdownlint`
-      run: |
-        npm install -g markdownlint-cli
-        markdownlint *.md
-    - name: Set up Ruby ${{ matrix.ruby }}
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby }}
-    - name: Build and test with Rake
-      env:
-        CHANGES_BOT_GH_USER: ${{ secrets.CHANGES_BOT_GH_USER }}
-        CHANGES_BOT_GH_PASS: ${{ secrets.CHANGES_BOT_GH_PASS }}
-      run: |
-        gem install bundler
-        bundle install --jobs 4 --retry 3
-        bundle exec rake
-    - name: Check `simplecov` line coverage
-      run: cat coverage/.last_run.json | jq '.result.line' | grep -q '100'
-    - name: Check `simplecov` branch coverage
-      run: cat coverage/.last_run.json | jq '.result.branch' | grep -q '100'
-    - name: Check source files using `rubocop`
-      run: rubocop
-    - name: Check that code 100% documented
-      run: yardoc . | grep -q '100.00% documented'
+      - uses: actions/checkout@v2
+      - name: Set up Ruby ${{ matrix.ruby }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: Build and test with Rake
+        env:
+          CHANGES_BOT_GH_USER: ${{ secrets.CHANGES_BOT_GH_USER }}
+          CHANGES_BOT_GH_PASS: ${{ secrets.CHANGES_BOT_GH_PASS }}
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+          bundle exec rake
+      - name: Check `simplecov` line coverage
+        run: cat coverage/.last_run.json | jq '.result.line' | grep -q '100'
+      - name: Check `simplecov` branch coverage
+        run: cat coverage/.last_run.json | jq '.result.branch' | grep -q '100'
+      - name: Check source files using `rubocop`
+        run: rubocop
+      - name: Check that code 100% documented
+        run: yardoc . | grep -q '100.00% documented'
   docker:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Default Dockerfile build
-      run: docker build .
+      - uses: actions/checkout@v2
+      - name: Default Dockerfile build
+        run: docker build .
