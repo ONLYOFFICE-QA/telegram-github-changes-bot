@@ -99,7 +99,7 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
-    telegram-bot-ruby (0.17.0)
+    telegram-bot-ruby (0.18.0)
       dry-inflector
       faraday (~> 1.0)
       virtus (~> 2.0)
