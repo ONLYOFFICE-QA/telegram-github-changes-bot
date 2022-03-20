@@ -60,7 +60,7 @@ class TelegramGithubChangesBot
   end
 
   def read_github_auth_data
-    @user_name = ENV['CHANGES_BOT_GH_USER'] || @config['github_user']
-    @user_password = ENV['CHANGES_BOT_GH_PASS'] || @config['github_user_password']
+    @user_name = @config['github_user']
+    @user_password = @config['github_user_password']
   end
 end
