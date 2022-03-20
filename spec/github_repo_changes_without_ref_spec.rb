@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe GithubRepoChanges do
-  let(:github_changes) { described_class.new(repo: 'ONLYOFFICE/sdkjs') }
+  let(:github_changes) { changes_bot.repo('ONLYOFFICE/sdkjs') }
 
   describe 'Check changes without refs' do
     before { github_changes.refs_from_message('/get_changes') }

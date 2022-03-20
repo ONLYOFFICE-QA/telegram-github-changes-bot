@@ -2,12 +2,7 @@
 
 require_relative 'lib/telegram_github_changes_bot'
 config = YAML.load_file('config.yml')
-repos_changes_array = []
-changes_bot = TelegramGithubChangesBot.new
-
-config['repos'].each do |cur_repo|
-  repos_changes_array << GithubRepoChanges.new(repo: cur_repo)
-end
+changes_bot = TelegramGithubChangesBot.new(config)
 
 Telegram::Bot::Client.run(config['telegram_bot_token']) do |bot|
   bot.listen do |message|
@@ -15,7 +10,7 @@ Telegram::Bot::Client.run(config['telegram_bot_token']) do |bot|
     case message.text
     when %r{/get_changes.*}
       text = ''
-      repos_changes_array.each do |cur_repo|
+      changes_bot.repos.each do |cur_repo|
         cur_repo.refs_from_message(message.text)
         text += cur_repo.link_to_changes
       end

@@ -6,12 +6,11 @@ module RefHelper
   # Set `@refs` variable
   # @return [Array<String>] list of refs
   def refs_names
-    Octokit.auto_paginate = true
     @refs = []
-    Octokit.tags(@repo).each do |current_tag|
+    @octokit.tags(@repo).each do |current_tag|
       @refs << current_tag['name']
     end
-    Octokit.branches(@repo).each do |current_branch|
+    @octokit.branches(@repo).each do |current_branch|
       @refs << current_branch['name']
     end
     @refs

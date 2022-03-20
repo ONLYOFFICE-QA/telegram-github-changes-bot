@@ -19,17 +19,10 @@ class GithubRepoChanges
   # @return [Array<String>] list of refs
   attr_accessor :refs
 
-  def initialize(config_file: 'config.yml',
-                 force_config_file: false,
-                 repo: nil)
-    init_github_access(config_file,
-                       force_file_read: force_config_file)
+  def initialize(repo: nil, octokit: nil)
     @repo = repo
+    @octokit = octokit
     @logger = Logger.new($stdout)
-    Octokit.configure do |c|
-      c.login = @user_name
-      c.password = @user_password
-    end
   end
 
   # @return [String] url to changes
@@ -39,7 +32,7 @@ class GithubRepoChanges
 
   # @return [True, False] is changes empty
   def changes_empty?
-    changes = Octokit.compare(@repo, @old_ref, @new_ref)
+    changes = @octokit.compare(@repo, @old_ref, @new_ref)
     changes[:files].empty?
   end
 
@@ -56,17 +49,5 @@ class GithubRepoChanges
     changes_text = "#{@repo} changes #{@old_ref}..."\
                    "#{@new_ref}"
     "<a href='#{changes_url}'>#{changes_text}</a>\n"
-  end
-
-  private
-
-  def init_github_access(config, force_file_read: false)
-    @user_name = ENV['CHANGES_BOT_GH_USER']
-    @user_password = ENV['CHANGES_BOT_GH_PASS']
-    return unless File.exist?(config) || force_file_read
-
-    @config = YAML.load_file(config)
-    @user_name = @config['github_user']
-    @user_password = @config['github_user_password']
   end
 end

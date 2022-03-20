@@ -6,3 +6,8 @@ SimpleCov.start do
 end
 
 require 'telegram_github_changes_bot'
+
+# @return [TelegramGithubChangesBot] default changes bot for rspec
+def changes_bot
+  @changes_bot ||= TelegramGithubChangesBot.new(YAML.load_file('config.yml'))
+end

@@ -5,6 +5,30 @@ require_relative 'telegram_github_changes_bot/github_repo_changes'
 
 # Main class for application
 class TelegramGithubChangesBot
+  def initialize(config = {})
+    @config = config
+    @repos = []
+    read_github_auth_data
+    @octokit = Octokit::Client.new(login: @user_name, password: @user_password)
+    @octokit.auto_paginate = true
+  end
+
+  # @return [Array<GithubRepoChanges>] list of repos
+  def repos
+    return @repos unless @repos.empty?
+
+    @config['repos'].each do |cur_repo|
+      @repos << repo(cur_repo)
+    end
+
+    @repos
+  end
+
+  # @return [GithubRepoChanges] single repo with data
+  def repo(name)
+    GithubRepoChanges.new(repo: name, octokit: @octokit)
+  end
+
   # Log that some message is received by bot
   # @return [void]
   def log_message_receive(message)
@@ -33,5 +57,10 @@ class TelegramGithubChangesBot
   # @return [Logger] logger interface
   def logger
     @logger ||= Logger.new($stdout)
+  end
+
+  def read_github_auth_data
+    @user_name = ENV['CHANGES_BOT_GH_USER'] || @config['github_user']
+    @user_password = ENV['CHANGES_BOT_GH_PASS'] || @config['github_user_password']
   end
 end
