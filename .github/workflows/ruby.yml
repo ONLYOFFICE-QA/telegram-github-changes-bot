@@ -22,8 +22,8 @@ jobs:
           CHANGES_BOT_GH_USER: ${{ secrets.CHANGES_BOT_GH_USER }}
           CHANGES_BOT_GH_PASS: ${{ secrets.CHANGES_BOT_GH_PASS }}
         run: |
-          - echo "github_user: ${CHANGES_BOT_GH_USER}" > config.yml
-          - echo "github_user_password: ${CHANGES_BOT_GH_PASS}" >> config.yml
+          echo "github_user: ${CHANGES_BOT_GH_USER}" > config.yml
+          echo "github_user_password: ${CHANGES_BOT_GH_PASS}" >> config.yml
       - name: Build and test with Rake
         run: |
           gem install bundler
