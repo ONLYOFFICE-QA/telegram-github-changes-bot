@@ -24,7 +24,7 @@ jobs:
         run: |
           echo "github_user: ${CHANGES_BOT_GH_USER}" > config.yml
           echo "github_user_password: ${CHANGES_BOT_GH_PASS}" >> config.yml
-          echo "repos: [ONLYOFFICE/Documentserver]" >> config.yml
+          echo "repos: [ONLYOFFICE/build_tools]" >> config.yml
       - name: Build and test with Rake
         run: |
           gem install bundler
