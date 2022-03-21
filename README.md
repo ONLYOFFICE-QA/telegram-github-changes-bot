@@ -4,13 +4,23 @@ Git bot for sending messages about github changes
 
 ## Config
 
-By file `config.yml` with data
+By file `config.json` with data
 
-```bash
-telegram_bot_token: token
-github_user: user
-github_user_password: pasword
-repos: [nodejs/node]
+```json
+{
+  "github_user": "my-github-user",
+  "github_user_password": "my-github-pass",
+  "repos": [
+    {
+      "name": "MY-ORG/my-repo"
+    },
+    {
+      "name": "MY-ORG/my-repo-without-tags",
+      "skip_if_refs_not_found": true
+    }
+  ]
+}
+
 ```
 
 ## Docker compose
