@@ -10,6 +10,7 @@
 * Add `ruby-3.1` to CI
 * Add `yamllint` check in CI
 * Add `skip_if_refs_not_found` option for repo
+* Mount `config.json` via volume in docker-compose
 
 ### Fixes
 
