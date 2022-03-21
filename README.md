@@ -18,7 +18,8 @@ By file `config.json` with data
       "name": "MY-ORG/my-repo-without-tags",
       "skip_if_refs_not_found": true
     }
-  ]
+  ],
+  "telegram_bot_token": "my-telegram-token"
 }
 
 ```
