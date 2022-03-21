@@ -17,4 +17,10 @@ describe GithubRepoChanges do
     expect(github_changes.link_to_changes)
       .to match(/Your specified version is the latest version/)
   end
+
+  it 'check empty changes with skip_if_refs_not_found' do
+    repo = changes_bot.repo(name: 'ONLYOFFICE/DocumentServer', skip_if_refs_not_found: true)
+    repo.refs_from_message('/get_changes 123...456')
+    expect(repo.link_to_changes).to be_empty
+  end
 end
