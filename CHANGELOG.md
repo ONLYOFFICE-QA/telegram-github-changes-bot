@@ -21,6 +21,8 @@
 * Remove `ruby-2.7` from CI since we use 3.0 in default docker
 * Remove `codeclimate` support since we don't use it any more
 * Check `dependabot` at 8:00 Moscow time daily
+* Major refactoring in project structure
+* Remove support of ENV variable for github access init
 
 ## 1.0.0 (2021-01-22)
 

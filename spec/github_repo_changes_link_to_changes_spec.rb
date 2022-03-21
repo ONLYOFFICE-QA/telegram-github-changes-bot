@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe GithubRepoChanges, '#link_to_changes' do
-  let(:github_changes) { described_class.new(repo: 'ONLYOFFICE/sdkjs') }
+  let(:github_changes) { changes_bot.repo('ONLYOFFICE/sdkjs') }
 
   it 'Check changes for not-existing refs' do
     github_changes.refs_from_message('/get_changes foo...bar')

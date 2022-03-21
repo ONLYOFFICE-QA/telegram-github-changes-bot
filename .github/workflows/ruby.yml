@@ -17,10 +17,15 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-      - name: Build and test with Rake
+      - name: Init default config
         env:
           CHANGES_BOT_GH_USER: ${{ secrets.CHANGES_BOT_GH_USER }}
           CHANGES_BOT_GH_PASS: ${{ secrets.CHANGES_BOT_GH_PASS }}
+        run: |
+          echo "github_user: ${CHANGES_BOT_GH_USER}" > config.yml
+          echo "github_user_password: ${CHANGES_BOT_GH_PASS}" >> config.yml
+          echo "repos: [ONLYOFFICE/build_tools]" >> config.yml
+      - name: Build and test with Rake
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
