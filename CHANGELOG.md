@@ -9,6 +9,7 @@
 * Add 100% branch coverage check in ci
 * Add `ruby-3.1` to CI
 * Add `yamllint` check in CI
+* Add `skip_if_refs_not_found` option for repo
 
 ### Fixes
 
@@ -23,6 +24,7 @@
 * Check `dependabot` at 8:00 Moscow time daily
 * Major refactoring in project structure
 * Remove support of ENV variable for github access init
+* Change config format to `json`
 
 ## 1.0.0 (2021-01-22)
 

@@ -5,7 +5,7 @@ require_relative 'telegram_github_changes_bot/github_repo_changes'
 
 # Main class for application
 class TelegramGithubChangesBot
-  def initialize(config = {})
+  def initialize(config = JSON.parse(File.read('./config.json'), symbolize_names: true))
     @config = config
     @repos = []
     read_github_auth_data
@@ -17,7 +17,7 @@ class TelegramGithubChangesBot
   def repos
     return @repos unless @repos.empty?
 
-    @config['repos'].each do |cur_repo|
+    @config[:repos].each do |cur_repo|
       @repos << repo(cur_repo)
     end
 
@@ -25,8 +25,10 @@ class TelegramGithubChangesBot
   end
 
   # @return [GithubRepoChanges] single repo with data
-  def repo(name)
-    GithubRepoChanges.new(repo: name, octokit: @octokit)
+  def repo(params)
+    GithubRepoChanges.new(repo: params[:name],
+                          octokit: @octokit,
+                          skip_if_refs_not_found: params[:skip_if_refs_not_found])
   end
 
   # Log that some message is received by bot
@@ -60,7 +62,7 @@ class TelegramGithubChangesBot
   end
 
   def read_github_auth_data
-    @user_name = @config['github_user']
-    @user_password = @config['github_user_password']
+    @user_name = @config[:github_user]
+    @user_password = @config[:github_user_password]
   end
 end
