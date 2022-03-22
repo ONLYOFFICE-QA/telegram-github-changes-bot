@@ -46,7 +46,7 @@ module RefHelper
 
   # @return [Boolean] if non-existing refs allowed
   def non_existing_refs_allowed?
-    return true if @skip_if_refs_not_found && (!@old_ref_exists || @new_ref_exists)
+    return true if @skip_if_refs_not_found && (!@old_ref_exists || !@new_ref_exists)
 
     false
   end
