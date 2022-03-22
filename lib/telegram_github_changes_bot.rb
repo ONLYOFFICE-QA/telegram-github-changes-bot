@@ -5,6 +5,9 @@ require_relative 'telegram_github_changes_bot/github_repo_changes'
 
 # Main class for application
 class TelegramGithubChangesBot
+  # @return [Hash] config data
+  attr_reader :config
+
   def initialize(config = JSON.parse(File.read('./config.json'), symbolize_names: true))
     @config = config
     @repos = []

@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 require_relative 'lib/telegram_github_changes_bot'
-config = YAML.load_file('config.yml')
-changes_bot = TelegramGithubChangesBot.new(config)
+changes_bot = TelegramGithubChangesBot.new
 
-Telegram::Bot::Client.run(config['telegram_bot_token']) do |bot|
+Telegram::Bot::Client.run(changes_bot.config[:telegram_bot_token]) do |bot|
   bot.listen do |message|
     changes_bot.log_message_receive(message)
     case message.text
