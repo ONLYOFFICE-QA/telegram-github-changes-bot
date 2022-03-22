@@ -19,4 +19,10 @@ describe GithubRepoChanges, '#link_to_changes' do
     github_changes.refs_from_message('/get_changes v5.6.1.6...v5.6.2.2')
     expect(github_changes.link_to_changes).to eq('')
   end
+
+  it 'Check repo with skip_if_refs_not_found' do
+    repo = changes_bot.repo(name: 'ONLYOFFICE/sdkjs-comparison', skip_if_refs_not_found: true)
+    repo.refs_from_message('/get_changes v6.4.1.45...v6.4.2.6')
+    expect(repo.link_to_changes).not_to be_empty
+  end
 end
