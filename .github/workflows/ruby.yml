@@ -22,9 +22,10 @@ jobs:
           CHANGES_BOT_GH_USER: ${{ secrets.CHANGES_BOT_GH_USER }}
           CHANGES_BOT_GH_PASS: ${{ secrets.CHANGES_BOT_GH_PASS }}
         run: |
-          echo "github_user: ${CHANGES_BOT_GH_USER}" > config.yml
-          echo "github_user_password: ${CHANGES_BOT_GH_PASS}" >> config.yml
-          echo "repos: [ONLYOFFICE/build_tools]" >> config.yml
+          jq -n \
+            --arg gh_user "$CHANGES_BOT_GH_USER" \
+            --arg gh_pass "$CHANGES_BOT_GH_PASS" \
+            '{github_user: $gh_user, github_user_password: $gh_pass, "repos": [{"name": "ONLYOFFICE/build_tools"}]}' > config.json
       - name: Build and test with Rake
         run: |
           gem install bundler

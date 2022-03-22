@@ -3,3 +3,5 @@ services:
   app:
     build: .
     restart: always
+    volumes:
+      - "./config.json:/root/telegram-github-changes-bot/config.json"

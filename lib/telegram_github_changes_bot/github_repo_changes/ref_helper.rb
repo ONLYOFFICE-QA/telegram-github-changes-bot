@@ -34,4 +34,20 @@ module RefHelper
     @old_ref ||= refs[1]
     nil
   end
+
+  private
+
+  # Check if stored refs are existing
+  # @return [void]
+  def check_ref_existence
+    @old_ref_exists = ref_exist?(@old_ref)
+    @new_ref_exists = ref_exist?(@new_ref)
+  end
+
+  # @return [Boolean] if non-existing refs allowed
+  def non_existing_refs_allowed?
+    return true if @skip_if_refs_not_found && (!@old_ref_exists || @new_ref_exists)
+
+    false
+  end
 end

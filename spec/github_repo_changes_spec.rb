@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe GithubRepoChanges do
-  let(:github_changes) { changes_bot.repo('ONLYOFFICE/sdkjs') }
+  let(:github_changes) { changes_bot.repo(name: 'ONLYOFFICE/sdkjs') }
 
   before { github_changes.refs_from_message('/get_changes master...develop') }
 

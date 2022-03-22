@@ -19,15 +19,13 @@ class GithubRepoChanges
   # @return [Array<String>] list of refs
   attr_accessor :refs
 
-  def initialize(repo: nil, octokit: nil)
+  def initialize(repo: nil,
+                 octokit: nil,
+                 skip_if_refs_not_found: false)
     @repo = repo
     @octokit = octokit
     @logger = Logger.new($stdout)
-  end
-
-  # @return [String] url to changes
-  def changes_url
-    "https://github.com/#{@repo}/compare/#{@old_ref}...#{@new_ref}"
+    @skip_if_refs_not_found = skip_if_refs_not_found
   end
 
   # @return [True, False] is changes empty
@@ -41,13 +39,30 @@ class GithubRepoChanges
     @logger.info("Fetching changes for `#{@repo}` "\
                  "between `#{@old_ref}` and `#{@new_ref}`")
     fetch_refs
-    return "There is no #{@old_ref} in #{@repo}\n" unless ref_exist?(@old_ref)
-    return "There is no #{@new_ref} in #{@repo}\n" unless ref_exist?(@new_ref)
+    check_ref_existence
+
+    return '' if non_existing_refs_allowed?
+    return "There is no #{@old_ref} in #{@repo}\n" unless @old_ref_exists
+    return "There is no #{@new_ref} in #{@repo}\n" unless @new_ref_exists
     return "#{@repo}: #{SAME_MESSAGE}" if @old_ref == @new_ref
     return '' if changes_empty?
 
-    changes_text = "#{@repo} changes #{@old_ref}..."\
-                   "#{@new_ref}"
+    changes_link
+  end
+
+  # @return [String] url to changes
+  def changes_url
+    "https://github.com/#{@repo}/compare/#{@old_ref}...#{@new_ref}"
+  end
+
+  # @return [String] changes text
+  def changes_text
+    "#{@repo} changes #{@old_ref}..."\
+      "#{@new_ref}"
+  end
+
+  # @return [String] link to changes text
+  def changes_link
     "<a href='#{changes_url}'>#{changes_text}</a>\n"
   end
 end
