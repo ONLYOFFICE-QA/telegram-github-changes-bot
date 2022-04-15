@@ -34,6 +34,14 @@ class TelegramGithubChangesBot
                           skip_if_refs_not_found: params[:skip_if_refs_not_found])
   end
 
+  # Check if message is some text command
+  # Not some other bot action (like Telegram::Bot::Types::ChatMemberUpdated)
+  # @param [Object] message received object
+  # @return [Boolean] result of check
+  def text_command?(message)
+    message.respond_to?(:text)
+  end
+
   # Log that some message is received by bot
   # @return [void]
   def log_message_receive(message)
