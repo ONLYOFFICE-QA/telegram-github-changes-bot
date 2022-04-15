@@ -16,6 +16,7 @@
 ### Fixes
 
 * Fix `markdownlint` failure because of old `nodejs` in CI
+* Fix bot failure if received event is not a message
 
 ### Changes
 
