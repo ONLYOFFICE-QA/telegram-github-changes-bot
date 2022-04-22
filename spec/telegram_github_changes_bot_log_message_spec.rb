@@ -4,8 +4,8 @@ require 'spec_helper'
 
 describe TelegramGithubChangesBot, '#log_message' do
   let(:bot) { described_class.new }
-  let(:message) { instance_double(message) }
-  let(:message_from) { instance_double(from) }
+  let(:message) { double }
+  let(:message_from) { double }
 
   before do
     allow(message_from).to receive(:username).and_return('custom_username')
