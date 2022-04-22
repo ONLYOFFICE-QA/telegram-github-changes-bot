@@ -10,7 +10,8 @@ describe TelegramGithubChangesBot, '#text_command' do
   end
 
   it 'if object has message in it - it is a text command' do
-    message = instance_double('Message', text: 'myCustomMessage')
+    message = double
+    allow(message).to receive(:text).and_return('myCustomMessage')
     expect(bot).to be_text_command(message)
   end
 end
