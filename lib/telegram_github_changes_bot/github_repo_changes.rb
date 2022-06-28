@@ -36,7 +36,7 @@ class GithubRepoChanges
 
   # @return [String] link to changes to send in message
   def link_to_changes
-    @logger.info("Fetching changes for `#{@repo}` "\
+    @logger.info("Fetching changes for `#{@repo}` " \
                  "between `#{@old_ref}` and `#{@new_ref}`")
     fetch_refs
     check_ref_existence
@@ -57,7 +57,7 @@ class GithubRepoChanges
 
   # @return [String] changes text
   def changes_text
-    "#{@repo} changes #{@old_ref}..."\
+    "#{@repo} changes #{@old_ref}..." \
       "#{@new_ref}"
   end
 
