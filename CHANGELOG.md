@@ -12,6 +12,7 @@
 * Add `skip_if_refs_not_found` option for repo
 * Mount `config.json` via volume in docker-compose
 * Add `dependabot` check for Docker base image
+* Add `hadloint` check in CI
 
 ### Fixes
 
