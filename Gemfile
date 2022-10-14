@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 
+gem 'faraday-retry'
 gem 'octokit'
 gem 'telegram-bot-ruby'
 

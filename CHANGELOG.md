@@ -15,6 +15,7 @@
 * Add `hadloint` check in CI
 * Build `onlyofficeqa/telegram-github-changes-bot` docker image
   in CI
+* Add `faraday-retry` gem dependency, to fix warning
 
 ### Fixes
 

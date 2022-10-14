@@ -22,6 +22,8 @@ GEM
     faraday-multipart (1.0.4)
       multipart-post (~> 2)
     faraday-net_http (3.0.1)
+    faraday-retry (2.0.0)
+      faraday (~> 2.0)
     ice_nine (0.11.2)
     iniparse (1.5.0)
     json (2.6.2)
@@ -103,6 +105,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  faraday-retry
   octokit
   overcommit
   rake
@@ -116,4 +119,4 @@ DEPENDENCIES
   yard
 
 BUNDLED WITH
-   2.3.16
+   2.3.23
