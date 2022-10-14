@@ -31,6 +31,7 @@
 * Major refactoring in project structure
 * Remove support of ENV variable for github access init
 * Change config format to `json`
+* Use docker hub image in default compose
 
 ## 1.0.0 (2021-01-22)
 

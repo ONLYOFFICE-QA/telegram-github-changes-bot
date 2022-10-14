@@ -1,6 +1,6 @@
 # telegram-github-changes
 
-Git bot for sending messages about github changes
+Telegram bot for sending messages about github changes
 
 ## Config
 
@@ -27,12 +27,13 @@ By file `config.json` with data
 ## Docker compose
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 ## How to update
 
 ```bash
 git pull --prune
-docker-compose up -d --no-deps --build app
+docker compose down
+docker compose up -d
 ```
