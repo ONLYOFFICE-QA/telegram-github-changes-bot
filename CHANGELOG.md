@@ -13,6 +13,8 @@
 * Mount `config.json` via volume in docker-compose
 * Add `dependabot` check for Docker base image
 * Add `hadloint` check in CI
+* Build `onlyofficeqa/telegram-github-changes-bot` docker image
+  in CI
 
 ### Fixes
 
