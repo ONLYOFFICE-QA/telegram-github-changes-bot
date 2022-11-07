@@ -12,7 +12,7 @@
 * Add `skip_if_refs_not_found` option for repo
 * Mount `config.json` via volume in docker-compose
 * Add `dependabot` check for Docker base image
-* Add `hadloint` check in CI
+* Add `hadolint` check in CI
 * Build `onlyofficeqa/telegram-github-changes-bot` docker image
   in CI
 * Add `faraday-retry` gem dependency, to fix warning
@@ -26,7 +26,8 @@
 
 * [ci] Increase order of `markdownlint` check for faster failures
 * Increase branch coverage to 100%
-* Remove `ruby-2.7` from CI since we use 3.0 in default docker
+* Remove `ruby-2.7` and `ruby-3.0` from CI since
+  we use 3.1 in default docker
 * Remove `codeclimate` support since we don't use it any more
 * Check `dependabot` at 8:00 Moscow time daily
 * Major refactoring in project structure
