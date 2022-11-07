@@ -26,7 +26,8 @@
 
 * [ci] Increase order of `markdownlint` check for faster failures
 * Increase branch coverage to 100%
-* Remove `ruby-2.7` from CI since we use 3.0 in default docker
+* Remove `ruby-2.7` and `ruby-3.0` from CI since 
+  we use 3.1 in default docker
 * Remove `codeclimate` support since we don't use it any more
 * Check `dependabot` at 8:00 Moscow time daily
 * Major refactoring in project structure
