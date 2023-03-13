@@ -22,7 +22,7 @@ GEM
     faraday-multipart (1.0.4)
       multipart-post (~> 2)
     faraday-net_http (3.0.2)
-    faraday-retry (2.0.0)
+    faraday-retry (2.1.0)
       faraday (~> 2.0)
     ice_nine (0.11.2)
     iniparse (1.5.0)
