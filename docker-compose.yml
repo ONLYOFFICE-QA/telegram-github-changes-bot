@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    image: onlyofficeqa/telegram-github-changes-bot
+    image: onlyoffice/telegram-github-changes-bot
     restart: always
     volumes:
       - "./config.json:/root/telegram-github-changes-bot/config.json"
