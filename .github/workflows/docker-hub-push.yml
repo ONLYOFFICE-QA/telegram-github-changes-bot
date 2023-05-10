@@ -32,5 +32,5 @@ jobs:
           platforms: linux/amd64, linux/arm64
           push: true
           tags: |
-            onlyofficeqa/telegram-github-changes-bot:latest
-            onlyofficeqa/telegram-github-changes-bot:${{ env.git_describe_version }}
+            onlyoffice/telegram-github-changes-bot:latest
+            onlyoffice/telegram-github-changes-bot:${{ env.git_describe_version }}
