@@ -13,7 +13,7 @@
 * Mount `config.json` via volume in docker-compose
 * Add `dependabot` check for Docker base image
 * Add `hadolint` check in CI
-* Build `onlyofficeqa/telegram-github-changes-bot` docker image
+* Build `onlyoffice/telegram-github-changes-bot` docker image
   in CI
 * Add `faraday-retry` gem dependency, to fix warning
 
