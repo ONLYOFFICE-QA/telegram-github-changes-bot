@@ -110,7 +110,7 @@ GEM
       zeitwerk (~> 2.6)
     unicode-display_width (2.4.2)
     yard (0.9.34)
-    zeitwerk (2.6.7)
+    zeitwerk (2.6.10)
 
 PLATFORMS
   ruby
