@@ -16,6 +16,7 @@
 * Build `onlyoffice/telegram-github-changes-bot` docker image
   in CI
 * Add `faraday-retry` gem dependency, to fix warning
+* Add `dependabot` check for `GitHub Actions`
 
 ### Fixes
 
