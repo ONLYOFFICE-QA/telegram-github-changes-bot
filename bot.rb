@@ -17,7 +17,7 @@ Telegram::Bot::Client.run(changes_bot.config[:telegram_bot_token]) do |bot|
       end
       text = 'There is no changes for specified versions' if text.empty?
       bot.api.send_message(chat_id: event.chat.id,
-                           text: text,
+                           text:,
                            parse_mode: 'html')
     when '/help'
       bot.api.send_message(chat_id: event.chat.id,
