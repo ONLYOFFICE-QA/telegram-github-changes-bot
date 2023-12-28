@@ -7,7 +7,7 @@
 * New `/help` command with bot description
 * Log any received command (known and unknown)
 * Add 100% branch coverage check in ci
-* Add `ruby-3.1` to CI
+* Add `ruby-3.3` to CI
 * Add `yamllint` check in CI
 * Add `skip_if_refs_not_found` option for repo
 * Mount `config.json` via volume in docker-compose
@@ -26,8 +26,8 @@
 
 * [ci] Increase order of `markdownlint` check for faster failures
 * Increase branch coverage to 100%
-* Remove `ruby-2.7` and `ruby-3.0` from CI since
-  we use 3.1 in default docker
+* Remove `ruby-2.7` and `ruby-3.0`, `ruby-3.1`, `ruby-3.2` from CI since
+  we use `ruby-3.3`` in default docker
 * Remove `codeclimate` support since we don't use it any more
 * Check `dependabot` at 8:00 Moscow time daily
 * Major refactoring in project structure
