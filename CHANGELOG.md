@@ -35,6 +35,7 @@
 * Remove support of ENV variable for github access init
 * Change config format to `json`
 * Use docker hub image in default compose
+* Add build packages to correctly install `bigdecimal` gem
 
 ## 1.0.0 (2021-01-22)
 
