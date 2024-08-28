@@ -115,7 +115,7 @@ GEM
       faraday-multipart (~> 1.0)
       zeitwerk (~> 2.6)
     unicode-display_width (2.5.0)
-    uri (0.13.0)
+    uri (0.13.1)
     yard (0.9.36)
     zeitwerk (2.6.17)
 
