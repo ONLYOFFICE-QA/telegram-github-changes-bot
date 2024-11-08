@@ -17,6 +17,7 @@
   in CI
 * Add `faraday-retry` gem dependency, to fix warning
 * Add `dependabot` check for `GitHub Actions`
+* Use `vcr` gem in specs, greatly increase speed and relability
 
 ### Fixes
 
