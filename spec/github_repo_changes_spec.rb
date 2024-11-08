@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe GithubRepoChanges do
+describe GithubRepoChanges, :vcr do
   let(:github_changes) { changes_bot.repo(name: 'ONLYOFFICE/sdkjs') }
 
   before { github_changes.refs_from_message('/get_changes master...develop') }

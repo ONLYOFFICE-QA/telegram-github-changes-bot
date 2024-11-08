@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe GithubRepoChanges, '#link_to_changes' do
+describe GithubRepoChanges, '#link_to_changes', :vcr do
   let(:github_changes) { changes_bot.repo(name: 'ONLYOFFICE/sdkjs') }
 
   it 'Check changes for not-existing refs' do

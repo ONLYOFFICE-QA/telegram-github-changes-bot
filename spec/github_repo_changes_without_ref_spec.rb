@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe GithubRepoChanges do
+describe GithubRepoChanges, :vcr do
   let(:github_changes) { changes_bot.repo(name: 'ONLYOFFICE/sdkjs') }
 
   describe 'Check changes without refs' do
