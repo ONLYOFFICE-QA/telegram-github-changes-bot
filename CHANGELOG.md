@@ -4,10 +4,10 @@
 
 ### New Features
 
+* Use `ruby-3.4` as base for application
 * New `/help` command with bot description
 * Log any received command (known and unknown)
 * Add 100% branch coverage check in ci
-* Add `ruby-3.3` to CI
 * Add `yamllint` check in CI
 * Add `skip_if_refs_not_found` option for repo
 * Mount `config.json` via volume in docker-compose
