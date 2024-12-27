@@ -2,6 +2,8 @@
 
 source 'https://rubygems.org'
 
+ruby '>= 3.4'
+
 gem 'faraday-retry'
 gem 'octokit'
 gem 'telegram-bot-ruby'
