@@ -24,6 +24,7 @@
 * Fix `markdownlint` failure because of old `nodejs` in CI
 * Fix bot failure if received event is not a message
 * Workaround a bug for failing build on arm64
+* Run `rubocop` in CI through `bundle exec`
 
 ### Changes
 
