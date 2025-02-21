@@ -36,7 +36,7 @@ jobs:
       - name: Check `simplecov` branch coverage
         run: cat coverage/.last_run.json | jq '.result.branch' | grep -q '100'
       - name: Check source files using `rubocop`
-        run: rubocop
+        run: bundle exec rubocop
       - name: Check that code 100% documented
         run: yardoc . | grep -q '100.00% documented'
   docker:
