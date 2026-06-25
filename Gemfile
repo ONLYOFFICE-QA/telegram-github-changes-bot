@@ -14,6 +14,7 @@ group :development do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rake', require: false
   gem 'rubocop-rspec', require: false
+  gem 'tsort', require: false
   gem 'yard'
 end
 
