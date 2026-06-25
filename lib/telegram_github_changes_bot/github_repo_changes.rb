@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require 'logger'
-require 'octokit'
-require 'yaml'
 require_relative 'github_repo_changes/github_repo_changes_helper'
 require_relative 'github_repo_changes/ref_helper'
 
@@ -16,22 +14,22 @@ class GithubRepoChanges
   attr_accessor :old_ref
   # @return [String] name of new ref
   attr_accessor :new_ref
-  # @return [Array<String>] list of refs
-  attr_accessor :refs
 
   def initialize(repo: nil,
-                 octokit: nil,
-                 skip_if_refs_not_found: false)
+                 client: nil,
+                 skip_if_refs_not_found: false,
+                 web_url: 'https://github.com')
     @repo = repo
-    @octokit = octokit
+    @client = client
     @logger = Logger.new($stdout)
     @skip_if_refs_not_found = skip_if_refs_not_found
+    @web_url = web_url
   end
 
   # @return [True, False] is changes empty
   def changes_empty?
-    changes = @octokit.compare(@repo, @old_ref, @new_ref)
-    changes[:files].empty?
+    changes = @client.compare(@repo, @old_ref, @new_ref)
+    (changes[:files] || changes[:commits]).empty?
   end
 
   # @return [String] link to changes to send in message
@@ -52,7 +50,7 @@ class GithubRepoChanges
 
   # @return [String] url to changes
   def changes_url
-    "https://github.com/#{@repo}/compare/#{@old_ref}...#{@new_ref}"
+    "#{@web_url}/#{@repo}/compare/#{@old_ref}...#{@new_ref}"
   end
 
   # @return [String] changes text

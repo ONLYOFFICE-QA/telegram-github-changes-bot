@@ -16,10 +16,12 @@ end
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/cassettes'
   config.hook_into :webmock
-  config.filter_sensitive_data('<GITHUB_USER>') { changes_bot.config[:github_user] }
-  config.filter_sensitive_data('<GITHUB_PASSWORD>') { changes_bot.config[:github_user_password] }
+  config.filter_sensitive_data('<GITHUB_TOKEN>') { changes_bot.config[:github_token] }
   config.filter_sensitive_data('<AUTHORIZATION>') do |interaction|
     interaction.request.headers['Authorization']&.first
+  end
+  config.filter_sensitive_data('<TOKEN_EXPIRATION>') do |interaction|
+    interaction.response.headers['Github-Authentication-Token-Expiration']&.first
   end
   config.configure_rspec_metadata!
 end

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+require 'json'
 require 'telegram/bot'
+require_relative 'telegram_github_changes_bot/git_api_client'
 require_relative 'telegram_github_changes_bot/github_repo_changes'
 
 # Main class for application
@@ -11,9 +13,14 @@ class TelegramGithubChangesBot
   def initialize(config = JSON.parse(File.read('./config.json'), symbolize_names: true))
     @config = config
     @repos = []
-    read_github_auth_data
-    @octokit = Octokit::Client.new(login: @user_name, password: @user_password)
-    @octokit.auto_paginate = true
+    @github_web_url = @config[:github_web_url]
+    @github_web_url = 'https://github.com' if @github_web_url.nil? || @github_web_url.empty?
+    api_endpoint = @config[:github_api_endpoint]
+    api_endpoint = 'https://api.github.com' if api_endpoint.nil? || api_endpoint.empty?
+    @client = GitApiClient.new(
+      api_endpoint: api_endpoint,
+      token: @config[:github_token]
+    )
   end
 
   # @return [Array<GithubRepoChanges>] list of repos
@@ -30,8 +37,9 @@ class TelegramGithubChangesBot
   # @return [GithubRepoChanges] single repo with data
   def repo(params)
     GithubRepoChanges.new(repo: params[:name],
-                          octokit: @octokit,
-                          skip_if_refs_not_found: params[:skip_if_refs_not_found])
+                          client: @client,
+                          skip_if_refs_not_found: params[:skip_if_refs_not_found],
+                          web_url: @github_web_url)
   end
 
   # Check if message is some text command
@@ -70,10 +78,5 @@ class TelegramGithubChangesBot
   # @return [Logger] logger interface
   def logger
     @logger ||= Logger.new($stdout)
-  end
-
-  def read_github_auth_data
-    @user_name = @config[:github_user]
-    @user_password = @config[:github_user_password]
   end
 end

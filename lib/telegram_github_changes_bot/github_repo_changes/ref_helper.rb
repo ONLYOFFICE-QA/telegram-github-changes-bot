@@ -2,36 +2,21 @@
 
 # Classes for working with refs
 module RefHelper
-  # Get list of refs names
-  # Set `@refs` variable
-  # @return [Array<String>] list of refs
-  def refs_names
-    @refs = []
-    @octokit.tags(@repo).each do |current_tag|
-      @refs << current_tag['name']
-    end
-    @octokit.branches(@repo).each do |current_branch|
-      @refs << current_branch['name']
-    end
-    @refs
-  end
-
   # Check if current ref is exists
   # @param ref_name [String] name of ref
-  # @return [True, false]
+  # @return [Boolean] true if ref exists
   def ref_exist?(ref_name)
-    @refs.each do |current_ref|
-      return true if current_ref == ref_name
-    end
-    false
+    @client.ref_exist?(@repo, ref_name)
   end
 
   # Fetch refs values (fill @new_ref and @old_ref)
   # @return [nil]
   def fetch_refs
-    refs = refs_names
-    @new_ref ||= refs[0]
-    @old_ref ||= refs[1]
+    return if @new_ref && @old_ref
+
+    latest = @client.latest_tag(@repo)
+    @new_ref ||= latest&.dig(:name)
+    @old_ref ||= latest&.dig(:name)
     nil
   end
 

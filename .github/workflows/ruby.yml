@@ -19,13 +19,15 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
       - name: Init default config
         env:
-          CHANGES_BOT_GH_USER: ${{ secrets.CHANGES_BOT_GH_USER }}
-          CHANGES_BOT_GH_PASS: ${{ secrets.CHANGES_BOT_GH_PASS }}
+          CHANGES_BOT_GH_TOKEN: ${{ secrets.CHANGES_BOT_GH_TOKEN }}
+          CHANGES_BOT_GH_API: ${{ secrets.CHANGES_BOT_GH_API }}
+          CHANGES_BOT_GH_WEB: ${{ secrets.CHANGES_BOT_GH_WEB }}
         run: |
           jq -n \
-            --arg gh_user "$CHANGES_BOT_GH_USER" \
-            --arg gh_pass "$CHANGES_BOT_GH_PASS" \
-            '{github_user: $gh_user, github_user_password: $gh_pass, "repos": [{"name": "ONLYOFFICE/build_tools"}]}' > config.json
+            --arg gh_token "$CHANGES_BOT_GH_TOKEN" \
+            --arg gh_api "$CHANGES_BOT_GH_API" \
+            --arg gh_web "$CHANGES_BOT_GH_WEB" \
+            '{github_token: $gh_token, github_api_endpoint: $gh_api, github_web_url: $gh_web, "repos": [{"name": "ONLYOFFICE/build_tools"}]}' > config.json
       - name: Build and test with Rake
         run: |
           gem install bundler
