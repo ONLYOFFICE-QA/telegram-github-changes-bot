@@ -11,9 +11,7 @@ describe GithubRepoChanges, :vcr do
   end
 
   it 'Check correct message if single ref - is the latest ref' do
-    github_changes.fetch_refs
-    newest_ref = github_changes.new_ref
-    github_changes.refs_from_message("/get_changes #{newest_ref}")
+    github_changes.refs_from_message('/get_changes win-v4.3.0.110')
     expect(github_changes.link_to_changes)
       .to match(/Your specified version is the latest version/)
   end

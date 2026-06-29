@@ -29,6 +29,34 @@ By file `config.json` with data
 which is compatible with Gitea and GitHub classic personal access tokens.
 GitHub fine-grained personal access tokens are not supported.
 
+## Usage
+
+### Compare two versions
+
+```text
+/get_changes v6.5.0.46...v6.5.0.57
+```
+
+Returns a link to the diff between two specified refs (tags or branches)
+for each repo listed in `config.json`.
+
+### Compare a version with the latest tag
+
+```text
+/get_changes v6.5.0.46
+```
+
+Returns a link to the diff between the specified ref and the latest tag
+in the repository. Useful to see what changed since your current version.
+
+### Help
+
+```text
+/help
+```
+
+Shows usage instructions.
+
 ## Docker compose
 
 ```bash

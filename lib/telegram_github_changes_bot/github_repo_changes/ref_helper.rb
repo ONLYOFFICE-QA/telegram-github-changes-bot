@@ -9,15 +9,18 @@ module RefHelper
     @client.ref_exist?(@repo, ref_name)
   end
 
-  # Fetch refs values (fill @new_ref and @old_ref)
+  # Fetch refs values (fill @new_ref from latest tag when only @old_ref is provided)
   # @return [nil]
   def fetch_refs
     return if @new_ref && @old_ref
 
-    latest = @client.latest_tag(@repo)
-    @new_ref ||= latest&.dig(:name)
-    @old_ref ||= latest&.dig(:name)
+    @new_ref ||= @client.latest_tag(@repo)&.dig(:name)
     nil
+  end
+
+  # @return [Boolean] true if both refs are present
+  def refs_present?
+    @old_ref && @new_ref
   end
 
   private
