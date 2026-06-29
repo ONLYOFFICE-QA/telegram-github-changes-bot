@@ -34,7 +34,8 @@
 * Switch from username/password auth to token-based auth
 * Bump Node.js from 16 to 20 in markdownlint CI job
 * Bump ruby base image to 3.4.2-alpine
-* Routine dependency updates (rubocop, telegram-bot-ruby, dry-types, json, rexml and others)
+* Routine dependency updates (rubocop, telegram-bot-ruby, dry-types, json,
+  rexml and others)
 * [ci] Increase order of `markdownlint` check for faster failures
 * Increase branch coverage to 100%
 * Remove `ruby-2.7`, `ruby-3.0`, `ruby-3.1`, `ruby-3.2` from CI since
