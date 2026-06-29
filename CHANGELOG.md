@@ -4,6 +4,8 @@
 
 ### New Features
 
+* Support ruby-head in CI
+* Configurable API endpoint and web URL for Gitea/GitHub-compatible servers
 * Use `ruby-3.4` as base for application
 * New `/help` command with bot description
 * Log any received command (known and unknown)
@@ -28,6 +30,11 @@
 
 ### Changes
 
+* Replace octokit with lightweight Faraday-based GitApiClient
+* Switch from username/password auth to token-based auth
+* Bump Node.js from 16 to 20 in markdownlint CI job
+* Bump ruby base image to 3.4.2-alpine
+* Routine dependency updates (rubocop, telegram-bot-ruby, dry-types, json, rexml and others)
 * [ci] Increase order of `markdownlint` check for faster failures
 * Increase branch coverage to 100%
 * Remove `ruby-2.7`, `ruby-3.0`, `ruby-3.1`, `ruby-3.2` from CI since
